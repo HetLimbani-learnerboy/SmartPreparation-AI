@@ -4,6 +4,10 @@ import './Homepage.css';
 
 const Homepage = () => {
     const featuresRef = useRef(null);
+
+
+
+    
     useEffect(() => {
         const handleScroll = () => {
             document.querySelectorAll('.scroll-section').forEach(section => {

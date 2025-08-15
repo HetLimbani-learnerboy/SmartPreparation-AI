@@ -24,6 +24,10 @@ const SignIn = () => {
                     <div className="forgot-password">
                         <Link to="/forgotpassword">Forgot Password?</Link> </div>
                     <button className="signin-btn" type="submit">Sign In</button>
+                    <div className="googlelogin-btn">
+                        <img src="/google-icon.png" alt="Google" />
+                        Continue with Google
+                    </div>
                     <div className='already-account'>
                         <p> Do you not have an account? <Link to="/signuppage">Signup</Link></p> </div>
                 </form>

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Routes, Route } from "react-router-dom";
-import Homepage from "./HomePage"
-import SignIn from "./SignIn"; 
+import Homepage from "./Components/HomePage"
+import SignIn from "./Components/SignIn"; 
 
 function App() {
   return (

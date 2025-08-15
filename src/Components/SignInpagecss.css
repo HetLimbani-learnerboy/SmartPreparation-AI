@@ -1,199 +1,179 @@
-/* =========================
-   Main Page Layout
-========================= */
 .signinpage-body {
-  background-color: #fffdd0; /* Cream background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-  padding: 1rem; /* Padding for small devices */
+    background-color: #fffdd0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    padding: 1rem;
 }
 
 .signinpage-container {
-  background-color: #ffffff; /* White card */
-  padding: 2rem 2.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 128, 0, 0.15);
-  width: 100%;
-  max-width: 350px; /* Keeps it centered and clean */
+    background-color: #ffffff;
+    padding: 2rem 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 128, 0, 0.15);
+    width: 100%;
+    max-width: 350px;
 }
 
 .signinpage-container h2 {
-  text-align: center;
-  color: #006400; /* Dark green */
-  margin-bottom: 1.5rem;
+    text-align: center;
+    color: #006400;
+    margin-bottom: 1.5rem;
 }
 
-/* =========================
-   Form Fields
-========================= */
 .form-group {
-  margin-bottom: 1.2rem;
+    margin-bottom: 1.2rem;
 }
 
 .form-group label {
-  display: block;
-  font-weight: bold;
-  color: #004d00;
-  margin-bottom: 0.5rem;
+    display: block;
+    font-weight: bold;
+    color: #004d00;
+    margin-bottom: 0.5rem;
 }
 
 .form-group input {
-  width: 100%;
-  padding: 0.6rem;
-  border: 1px solid #008000;
-  border-radius: 6px;
-  outline: none;
-  font-size: 0.95rem;
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #008000;
+    border-radius: 6px;
+    outline: none;
+    font-size: 0.95rem;
 }
 
 .form-group input:focus {
-  border-color: #004d00;
-  box-shadow: 0 0 5px rgba(0, 128, 0, 0.3);
+    border-color: #004d00;
+    box-shadow: 0 0 5px rgba(0, 128, 0, 0.3);
 }
 
-/* =========================
-   Password Field
-========================= */
 .password-wrapper {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .eye-icon {
-  margin-left: -30px;
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .eye-icon-img {
-  width: 20px;
-  height: 20px;
+    width: 20px;
+    height: 20px;
 }
 
-/* =========================
-   Links
-========================= */
 .forgot-password {
-  text-align: right;
-  margin-bottom: 1rem;
+    text-align: right;
+    margin-bottom: 1rem;
 }
 
 .forgot-password a {
-  font-size: 0.85rem;
-  color: #008000;
-  text-decoration: none;
+    font-size: 0.85rem;
+    color: #008000;
+    text-decoration: none;
 }
 
 .forgot-password a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
-/* =========================
-   Buttons
-========================= */
+
 .signin-btn {
-  width: 100%;
-  padding: 0.7rem;
-  background-color: #006400;
-  color: #fffdd0;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
+    width: 100%;
+    padding: 0.7rem;
+    background-color: #006400;
+    color: #fffdd0;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .signin-btn:hover {
-  background-color: #008000;
+    background-color: #008000;
 }
 
-/* =========================
-   Signup & Back Links
-========================= */
+
 .already-account {
-  text-align: center;
-  margin-top: 1rem;
-  font-size: 0.9rem;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
 }
 
 .already-account a {
-  color: #006400;
-  font-weight: bold;
-  text-decoration: none;
+    color: #006400;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .already-account a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .back-btn {
-  display: inline-block;
-  margin-top: 1.5rem;
-  color: #008000;
-  font-size: 0.9rem;
-  text-decoration: none;
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: #008000;
+    font-size: 0.9rem;
+    text-decoration: none;
 }
 
 .back-btn:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
-/* =========================
-   Responsive Design
-========================= */
 
 /* Tablets */
 @media (max-width: 768px) {
-  .signinpage-container {
-    padding: 1.5rem;
-    max-width: 300px;
-  }
-  
-  .signinpage-container h2 {
-    font-size: 1.4rem;
-  }
+    .signinpage-container {
+        padding: 1.5rem;
+        max-width: 300px;
+    }
 
-  .signin-btn {
-    font-size: 0.95rem;
-    padding: 0.6rem;
-  }
+    .signinpage-container h2 {
+        font-size: 1.4rem;
+    }
+
+    .signin-btn {
+        font-size: 0.95rem;
+        padding: 0.6rem;
+    }
 }
 
 /* Mobile Phones */
 @media (max-width: 480px) {
-  .signinpage-body {
-    padding: 0.5rem;
-  }
+    .signinpage-body {
+        padding: 0.5rem;
+    }
 
-  .signinpage-container {
-    padding: 1rem;
-    border-radius: 8px;
-    max-width: 100%;
-  }
+    .signinpage-container {
+        padding: 1rem;
+        border-radius: 8px;
+        max-width: 100%;
+    }
 
-  .signinpage-container h2 {
-    font-size: 1.2rem;
-  }
+    .signinpage-container h2 {
+        font-size: 1.2rem;
+    }
 
-  .form-group input {
-    font-size: 0.85rem;
-    padding: 0.5rem;
-  }
+    .form-group input {
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
 
-  .signin-btn {
-    font-size: 0.9rem;
-    padding: 0.5rem;
-  }
+    .signin-btn {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
 
-  .forgot-password {
-    text-align: center;
-    margin-bottom: 0.8rem;
-  }
+    .forgot-password {
+        text-align: center;
+        margin-bottom: 0.8rem;
+    }
 
-  .eye-icon-img {
-    width: 18px;
-    height: 18px;
-  }
+    .eye-icon-img {
+        width: 18px;
+        height: 18px;
+    }
 }

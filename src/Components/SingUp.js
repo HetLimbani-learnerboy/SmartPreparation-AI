@@ -13,6 +13,23 @@ const SignupPage = () => {
 
     const navigate = useNavigate();
 
+    // Email validation rules
+    const emailValid = {
+        lowercase: /^[a-z0-9@.]+$/.test(email) && email.length > 0,
+        containsAt: email.includes('@'),
+        hasNumber: /\d/.test(email),
+        validDomain: /\.[a-z]{2,}$/.test(email)
+    };
+
+    // Password validation rules
+    const passwordValid = {
+        minLength: password.length >= 8,
+        uppercase: /[A-Z]/.test(password),
+        lowercase: /[a-z]/.test(password),
+        number: /\d/.test(password),
+        specialChar: /[!@#$%^&*(),.?":{}|<>]/.test(password)
+    };
+
     const togglePassword = () => setShowPassword(!showPassword);
     const toggleConfirmPassword = () => setShowConfirmPassword(!showConfirmPassword);
 
@@ -60,6 +77,12 @@ const SignupPage = () => {
                             onChange={(e) => setEmail(e.target.value)}
                             required
                         />
+                        <div className="validation-list">
+                            <p className={emailValid.lowercase ? "valid" : "invalid"}>✔ Only lowercase letters, numbers & @</p>
+                            <p className={emailValid.containsAt ? "valid" : "invalid"}>✔ Contains "@"</p>
+                            <p className={emailValid.hasNumber ? "valid" : "invalid"}>✔ Contains a number</p>
+                            <p className={emailValid.validDomain ? "valid" : "invalid"}>✔ Has a valid domain (e.g. .com)</p>
+                        </div>
                     </div>
                     <div className="form-group password-group">
                         <label>Password:</label>
@@ -78,6 +101,13 @@ const SignupPage = () => {
                                     className="eye-icon-img"
                                 />
                             </span>
+                        </div>
+                        <div className="validation-list">
+                            <p className={passwordValid.minLength ? "valid" : "invalid"}>✔ At least 8 characters</p>
+                            <p className={passwordValid.uppercase ? "valid" : "invalid"}>✔ At least 1 uppercase letter</p>
+                            <p className={passwordValid.lowercase ? "valid" : "invalid"}>✔ At least 1 lowercase letter</p>
+                            <p className={passwordValid.number ? "valid" : "invalid"}>✔ At least 1 number</p>
+                            <p className={passwordValid.specialChar ? "valid" : "invalid"}>✔ At least 1 special character</p>
                         </div>
                     </div>
                     <div className="form-group password-group">
@@ -105,7 +135,12 @@ const SignupPage = () => {
                     <button
                         className="signup-btn"
                         type="submit"
-                        disabled={!firstName || !lastName || !email || !password || password !== confirmPassword}
+                        disabled={
+                            !firstName || !lastName || !email || !password ||
+                            password !== confirmPassword ||
+                            Object.values(emailValid).includes(false) ||
+                            Object.values(passwordValid).includes(false)
+                        }
                     >
                         Sign Up
                     </button>

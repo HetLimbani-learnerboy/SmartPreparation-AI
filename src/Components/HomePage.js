@@ -126,10 +126,13 @@ const Homepage = () => {
         </div>
         <br />
         <h4>Project Info</h4>
-        <p>
-          This platform empowers students to create or join AI-driven study groups where they can upload notes,
-          auto-generate quizzes using NLP, and compete with friends in real-time. Designed for collaborative, smart learning.
-        </p>
+        <p class="typewriter-multiline">
+  🚀 This platform empowers students to create or join 🤖 AI-driven study groups where they can 📚 upload notes,
+  auto-generate quizzes using 🧠 NLP, and compete with friends 🏆 in real-time. Designed for collaborative 🤝 smart learning.
+</p>
+
+
+
       </section>
 
     </div>

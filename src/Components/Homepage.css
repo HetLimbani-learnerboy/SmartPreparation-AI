@@ -116,14 +116,14 @@ body {
     border-radius: 10px;
 }
 
-/* Features Section */
 .section-2 {
     background-color: #f5fce8;
 }
 
 .section-2 h2 {
+    padding-top: 3rem;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     color: #006400;
 }
 
@@ -161,19 +161,62 @@ body {
     color: #004d00;
 }
 
-/* About Us Section */
 .section-3 {
     background-color: #e9f5e1;
     padding: 4rem 8%;
+    height: 90vh;
 }
 
 .section-3 h2 {
     text-align: center;
+    font-size: 3rem;
     margin-bottom: 2rem;
     color: #006400;
 }
+.section-3 h4 {
+    text-align: center;
+    font-size: 2rem;
+    color: #006400;
+}
+.typewriter-multiline {
+    margin-top: -2rem;
 
-/* Table inside About Us */
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    font-weight: bolder;
+    font-size: 1.2rem;
+
+    display: inline-block;
+    overflow: hidden;
+    border-right: 3px solid black; /* cursor effect */
+
+    animation: typing-multi 6s steps(100, end), blink 0.7s step-end infinite;
+}
+
+/* Typing effect for multi-line */
+@keyframes typing-multi {
+    from {
+        max-width: 0;
+    }
+    to {
+        max-width: 100%;
+    }
+}
+
+/* Blinking cursor */
+@keyframes blink {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: black;
+    }
+}
+
+
+
+
 .about-table {
     width: 100%;
     border-collapse: collapse;

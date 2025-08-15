@@ -25,7 +25,6 @@ const Homepage = () => {
   return (
     <div className="homepage-main">
 
-      {/* Section 1 - Hero */}
       <section className="homepage-wrapper scroll-section">
         <div className="left-content">
           <h2>SmartPreparation-AI</h2>

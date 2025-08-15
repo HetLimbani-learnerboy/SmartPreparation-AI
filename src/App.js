@@ -4,6 +4,7 @@ import Homepage from "./Components/HomePage"
 import SignIn from "./Components/SignIn"; 
 import SignupPage from './Components/SingUp';
 import GetStartedPage from './Components/GetStartedpage';
+import Dashboard from './Pages/Dashboard';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Route path="/signin" element={<SignIn />} />
       <Route path='/signuppage' element={<SignupPage/>}/>
       <Route path='/getstarted' element={<GetStartedPage/>}/>
+      <Route path='/dashboard' element={<Dashboard/>}/>
     </Routes>
   );
 }

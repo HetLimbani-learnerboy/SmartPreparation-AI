@@ -5,6 +5,7 @@ import SignIn from "./Components/SignIn";
 import SignupPage from './Components/SingUp';
 import GetStartedPage from './Components/GetStartedpage';
 import Dashboard from './Pages/Dashboard';
+import AutoQuizpage from './Pages/AutoQuizpage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/signuppage" element={<SignupPage />} />
         <Route path="/getstarted" element={<GetStartedPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/autoquizpage" element={<AutoQuizpage />} />
       </Routes>
     </BrowserRouter>
   );

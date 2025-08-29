@@ -1,4 +1,3 @@
-// controllers/questionController.js
 const Question = require("../models/Question");
 
 exports.addQuestion = async (req, res) => {
@@ -9,5 +8,14 @@ exports.addQuestion = async (req, res) => {
 
 exports.getQuestions = async (req, res) => {
   const questions = await Question.getAll();
+  res.json(questions);
+};
+
+// ✅ Generate quiz by question_type (query param `type`)
+exports.generateQuizByType = async (req, res) => {
+  const type = req.query.type || req.params.type;
+  if (!type) return res.status(400).json({ error: "Missing 'type' query/param" });
+
+  const questions = await Question.getRandomByType(type, 10);
   res.json(questions);
 };

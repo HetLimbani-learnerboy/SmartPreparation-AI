@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import "./Dashboardpage.css";
@@ -10,6 +11,7 @@ const Dashboard = () => {
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
     };
+    const navigate= useNavigate();
 
     // Close sidebar when clicking outside
     useEffect(() => {
@@ -36,7 +38,7 @@ const Dashboard = () => {
                 <ul>
                     <li>📊 Dashboard</li>
                     <li>🎥 Lectures</li>
-                    <li>🤖 Auto Quiz Generator</li>
+                     <li onClick={() => navigate("/autoquizpage")}>🤖 Auto Quiz Generator </li>
                     <li>📚 Topic-based Quiz Generator</li>
                     <li>👥 Group</li>
                     <li>💬 Message</li>

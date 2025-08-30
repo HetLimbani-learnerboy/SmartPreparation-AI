@@ -1,21 +1,23 @@
+// Import the model instead of the raw db connection
 const Question = require("../models/Question");
 
-exports.addQuestion = async (req, res) => {
-  const { question, option1, option2, option3, option4, answer, question_type } = req.body;
-  const newQuestion = await Question.create({ question, option1, option2, option3, option4, answer, question_type });
-  res.json(newQuestion);
+const getRandomQuestions = async (req, res) => {
+  try {
+    const { branch } = req.params;
+    
+    // Call the model function to get the data
+    const questions = await Question.findRandomByBranch(branch);
+    
+    res.status(200).json(questions);
+
+  } catch (error) {
+    // Catch errors from the model (like the 404 error) or the database
+    console.error("Error in controller:", error);
+    // Use the status code from the error if it exists, otherwise default to 500
+    res.status(error.statusCode || 500).json({ error: error.message });
+  }
 };
 
-exports.getQuestions = async (req, res) => {
-  const questions = await Question.getAll();
-  res.json(questions);
-};
-
-// ✅ Generate quiz by question_type (query param `type`)
-exports.generateQuizByType = async (req, res) => {
-  const type = req.query.type || req.params.type;
-  if (!type) return res.status(400).json({ error: "Missing 'type' query/param" });
-
-  const questions = await Question.getRandomByType(type, 10);
-  res.json(questions);
+module.exports = {
+  getRandomQuestions,
 };

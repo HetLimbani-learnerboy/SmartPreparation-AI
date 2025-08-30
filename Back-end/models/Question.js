@@ -1,32 +1,35 @@
-const pool = require("../config/db");
+const db = require("../config/db");
 
-class Question {
-  static async create({ question, option1, option2, option3, option4, answer, question_type }) {
-    const result = await pool.query(
-      `INSERT INTO questions (question, option1, option2, option3, option4, answer, question_type)
-       VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *`,
-      [question, option1, option2, option3, option4, answer, question_type]
-    );
-    return result.rows[0];
-  }
 
-  static async getAll() {
-    const result = await pool.query("SELECT * FROM questions");
-    return result.rows;
-  }
+const Question = {
 
-  // ✅ 10 random by question_type
-  static async getRandomByType(type, limit = 10) {
-    const result = await pool.query(
-      `SELECT id, question, option1, option2, option3, option4, answer, question_type
-       FROM questions
-       WHERE question_type = $1
-       ORDER BY RANDOM()
-       LIMIT $10`,
-      [type, limit]
-    );
-    return result.rows;
+  findRandomByBranch: async (branch) => {
+    const questionTypesByBranch = {
+      CSE: ["Cybersecurity", "Python", "Java", "DSA"],
+      ICT: ["Networking", "Web Development"],
+      "AI/ML": ["Machine Learning", "Deep Learning"],
+    };
+
+    const validTypes = questionTypesByBranch[branch];
+
+    if (!validTypes || validTypes.length === 0) {
+      // Instead of sending a response, we throw an error that the controller will catch.
+      const error = new Error(`Branch '${branch}' not found or has no question types defined.`);
+      error.statusCode = 404;
+      throw error;
+    }
+
+    const sqlQuery = `  
+      SELECT id, question, option1, option2, option3, option4, answer, question_type 
+      FROM questions 
+      WHERE question_type = ANY($1) 
+      ORDER BY RANDOM() 
+      LIMIT 10
+    `;
+    
+    const { rows } = await db.query(sqlQuery, [validTypes]);
+    return rows;
   }
-}
+};
 
 module.exports = Question;

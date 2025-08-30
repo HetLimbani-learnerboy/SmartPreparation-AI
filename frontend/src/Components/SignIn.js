@@ -58,9 +58,9 @@ const SignIn = () => {
                         <Link to="/forgotpassword">Forgot Password?</Link>
                     </div>
                     <button className="signin-btn" type="submit">Sign In</button>
-                    <div className="googlelogin-btn">
+                    <div className="googlelogin-btn"><a href='/google'>
                         <img src="/google-icon.png" alt="Google" />
-                        Continue with Google
+                        Continue with Google</a>
                     </div>
                     <div className='already-account'>
                         <p>

@@ -3,7 +3,6 @@ const db = require("../config/db");
 const Question = {
   findRandomByBranch: async (branch) => {
     const questionTypesByBranch = {
-
       CSE: [
         "Cybersecurity",
         "Python",
@@ -13,9 +12,8 @@ const Question = {
         "Software Engineering",
         "Networking",
         "Database",
-        "Programming"
+        "Programming",
       ],
-
       ICT: [
         "AI/ML",
         "Big Data",
@@ -26,9 +24,8 @@ const Question = {
         "Statistics",
         "Optimization",
         "Edge Computing",
-        "Software Architecture"
+        "Software Architecture",
       ],
-
       AIML: [
         "AI/ML",
         "Deep Learning",
@@ -39,8 +36,8 @@ const Question = {
         "Big Data",
         "Cloud Computing",
         "IoT",
-        "Reinforcement Learning"
-      ]
+        "Reinforcement Learning",
+      ],
     };
 
     const validTypes = questionTypesByBranch[branch];
@@ -51,17 +48,17 @@ const Question = {
       throw error;
     }
 
-    const sqlQuery = `  
-      SELECT id, question, option1, option2, option3, option4, answer, question_type 
-      FROM questions 
-      WHERE question_type = ANY($1) 
-      ORDER BY RANDOM() 
+    const sqlQuery = `
+      SELECT id, question, option1, option2, option3, option4, answer, question_type
+      FROM questions
+      WHERE question_type = ANY($1)
+      ORDER BY RANDOM()
       LIMIT 10
     `;
 
     const { rows } = await db.query(sqlQuery, [validTypes]);
     return rows;
-  }
+  },
 };
 
 module.exports = Question;

@@ -9,7 +9,6 @@ import AutoQuizpage from './Pages/AutoQuizpage';
 
 function App() {
   return (
-    
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Homepage />} />
